@@ -11,12 +11,14 @@
 - PKが指定されていない。
 
 ## Users
-- user_l_name: 備考に名前とあるが説明が抽象的、性の漢字が違う、INDEXがあるべき。
-- user_f_name: NOT NULLであるべき、INDEXがあるべき。
-- user_l_name_kana: 性の漢字が違う。
-- user_f_name_kana: NOT NULLであるべき。
+- user_l_name: 備考に名前とあるが説明が抽象的、性の漢字が違う、INDEXがあるべき、略語で書くべきでない。
+- user_f_name: NOT NULLであるべき、INDEXがあるべき、略語で書くべきでない。
+- user_l_name_kana: 性の漢字が違う、略語で書くべきでない。
+- user_f_name_kana: NOT NULLであるべき、略語で書くべきでない。
 - ship_address: 複数の配送先情報を格納できるように考慮されていない。
-- member_status: 備考にFALSE, TRUEそれぞれの値の意味を書くべき。
+- member_status: 型はboolean型で、備考にFALSE, TRUEそれぞれの値の意味を書くべき。
+- user_tel, zip_address: integer型だと0始まりの時に保存ができないためstring型であるべき。
+- userという接続語はいらない。
 
 ## Products
 - disc_id: 1テーブルに複数の値が入る可能性があることに考慮していない。
@@ -26,11 +28,13 @@
 - cd_image: refileで管理することが想定されるため、命名の最後に_idが必要でstring型であるべき。
 - stock: 変動する事が多いため不必要。
 - stock_status: enumで管理し、defaultを指定するべき、備考にそれぞれのキーに対応する値を記述するべき。
+- productという接続語はいらない。
 
 ## Discs
 - products_id: 単数形でよい。
 - track_num: 命名が曖昧で役割が分かりづらい。
 - ディスク名を管理できるように考慮していない。
+- discという接続語はいらない。
 
 ## Songs
 - song: 命名が分かりづらい、カラムの説明と型が一致していない。
